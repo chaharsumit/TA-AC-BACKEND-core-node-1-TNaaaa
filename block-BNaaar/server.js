@@ -3,9 +3,6 @@ let url = require('url');
 
 let server = http.createServer(handleRequest);
 
-let postData = {
-  message : 'This is a post request',
-}
 
 function handleRequest(req, res){
   let parsedUrl = url.parse(req.url);
@@ -19,7 +16,7 @@ function handleRequest(req, res){
     res.end('<h2>This is all about NodeJS</h2>')
   }else if(req.method === 'POST' && pathName === '/about'){
     res.setHeader('Content-Type' ,'application/json');
-    res.end(postData);
+    res.end('{message : This is a post request}');
   }
 }
 
